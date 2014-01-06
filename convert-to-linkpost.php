@@ -1,7 +1,7 @@
 <?php
 /**
 * Plugin Name: Convert Link Posts
-* Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
+* Plugin URI: https://github.com/marcelosomers/wordpress-convert-to-linkpost
 * Description: Converts a post to Link format when there is a link URL custom field
 * Version: 1.0
 * Author: Marcelo Somers
