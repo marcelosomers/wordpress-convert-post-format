@@ -5,7 +5,7 @@
 * Description: Converts a post to Link format when there is a link URL custom field
 * Version: 1.0
 * Author: Marcelo Somers
-* Author URI: http://marcelosomers.com/
+* Author URI: http://behindcompanies.com/about
 * License: MIT
 */
 
