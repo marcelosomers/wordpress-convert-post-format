@@ -12,16 +12,24 @@
 function set_link_post( $post_id ) {
 
     // Set your linked list custom field name
-    $linked_list_field = "linked_list_url";
+    $custom_field = "linked_list_url";
+    $post_format = "Link";
 
-    // Get the post format
-    $post_format = get_post_format( $post_id );
+    // Get the post's current format
+    $current_format = get_post_format( $post_id );
 
-    // Get the Linked List URL
-    $link_list_item = get_post_meta($post_id, 'linked_list_url', true);
+    // Get the custom field value
+    $custom_field_value = get_post_meta($post_id, $custom_field, true);
 
-    if($post_format == FALSE && $link_list_item != "") {
-        set_post_format($post_id, 'Link');
+    if ( $current_format == FALSE && $custom_field_value != "" ) {
+
+        // If the post format is standard, and there is a value in your custom field, then set the post format
+        set_post_format($post_id, $post_format);
+
+    } elseif ( $current_format == $post_format && $custom_field_value == "" ) {
+
+        // If you remove your custom field, but the custom value is still set, undo it
+        set_post_format($post_id, NULL);
     }
 }
 
