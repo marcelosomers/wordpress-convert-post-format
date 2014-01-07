@@ -6,5 +6,5 @@ I created this plugin because unfortunately, the fantastic [MarsEdit](http://www
 
 ## Instructions
 1. Save this plugin into your `wp-content/plugins/` directory
-2. Open `convert-to-linkpost.php` and edit `$custom_field` and `$post_format` to be the name of the custom field you want to use, and the format you want it to change to
+2. Open `set-post-format.php` and edit `$custom_field` and `$post_format` to be the name of the custom field you want to use, and the format you want it to change to
 3. Activate the plugin
