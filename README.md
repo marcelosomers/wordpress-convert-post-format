@@ -1,11 +1,10 @@
-# Convert WordPress Posts to a Link Post
+# Convert WordPress Post Format Based on a Custom Field
 
-This WordPress Plugin will convert your post to a link-formatted post if there is content in the link custom field. This was created because the fantastic [MarsEdit](http://www.red-sweater.com/marsedit/) does not support setting the post format within the editing interface.
+This WordPress Plugin will convert your post format if there is content in a custom field.
+
+I created this plugin because unfortunately, the fantastic [MarsEdit](http://www.red-sweater.com/marsedit/) does not support setting the WordPress post format within the app. I use it for link blogging - if I have a link set in my custom field, WordPress will set the post format to Link.
 
 ## Instructions
 1. Save this plugin into your `wp-content/plugins/` directory
-2. Open `convert-to-linkpost.php` and edit `$linked_list_field` to be the name of the custom field you use for links
+2. Open `convert-to-linkpost.php` and edit `$custom_field` and `$post_format` to be the name of the custom field you want to use, and the format you want it to change to
 3. Activate the plugin
-
-## How it Works
-This plugin will fire whenever you save a new post or update an existing post. It then checks if the Post Format is FALSE (which means it's a standard formatted post) and if your link custom field isn't blank. If both match, then it'll set the post format to Link.
