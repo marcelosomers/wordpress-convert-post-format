@@ -1,8 +1,8 @@
 <?php
 /**
-* Plugin Name: Convert Link Posts
+* Plugin Name: Convert Post Format From Custom Fields
 * Plugin URI: https://github.com/marcelosomers/wordpress-convert-to-linkpost
-* Description: Converts a post to Link format when there is a link URL custom field
+* Description: Converts a post to a specified format automatically when a custom field is set
 * Version: 1.0
 * Author: Marcelo Somers
 * Author URI: http://behindcompanies.com/about
@@ -12,16 +12,24 @@
 function set_link_post( $post_id ) {
 
     // Set your linked list custom field name
-    $linked_list_field = "linked_list_url";
+    $custom_field = "YOUR_CUSTOM_FIELD";    // The custom field name that should trigger this plugin
+    $post_format = "YOUR_DESIRED_FORMAT";   // The desired format to set your post (e.g., link, video, etc.)
 
-    // Get the post format
-    $post_format = get_post_format( $post_id );
+    // Get the post's current format
+    $current_format = get_post_format( $post_id );
 
-    // Get the Linked List URL
-    $link_list_item = get_post_meta($post_id, 'linked_list_url', true);
+    // Get the custom field value
+    $custom_field_value = get_post_meta($post_id, $custom_field, true);
 
-    if($post_format == FALSE && $link_list_item != "") {
-        set_post_format($post_id, 'Link');
+    if ( $current_format == FALSE && $custom_field_value != "" ) {
+
+        // If the post format is standard, and there is a value in your custom field, then set the post format
+        set_post_format($post_id, $post_format);
+
+    } elseif ( $current_format == $post_format && $custom_field_value == "" ) {
+
+        // If you remove your custom field, but the custom value is still set, undo it
+        set_post_format($post_id, NULL);
     }
 }
 
