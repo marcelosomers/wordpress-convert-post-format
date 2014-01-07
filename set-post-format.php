@@ -9,7 +9,7 @@
 * License: MIT
 */
 
-function set_link_post( $post_id ) {
+function set_post_format( $post_id ) {
 
     // Set your linked list custom field name
     $custom_field = "YOUR_CUSTOM_FIELD";    // The custom field name that should trigger this plugin
@@ -33,6 +33,6 @@ function set_link_post( $post_id ) {
     }
 }
 
-add_action('save_post', 'set_link_post');
+add_action('save_post', 'set_post_format');
 
 ?>
